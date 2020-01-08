@@ -1,0 +1,6 @@
+ul.zebra-custom li:nth-of-type(odd){
+    background: rgb(233, 233, 233);
+}
+ul.zebra-custom li:nth-of-type(even){
+    background: rgb(255, 255, 255);
+}
