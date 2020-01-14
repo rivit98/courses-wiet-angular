@@ -18,8 +18,12 @@ export class CoursesService {
   }
 
   getCourse(courseId : number) : Course{
-    //po indeksie czy po id?
-    return this.courses[courseId];
+    const index = this.courses.findIndex(c => c.id === courseId);
+    if (index > -1) {
+      return this.courses[index]
+    }
+
+    return undefined;
   }
 
   addCourse(crs : Course) : void{
@@ -32,5 +36,6 @@ export class CoursesService {
       this.courses.splice(index, 1);
     }
   }
+
 
 }

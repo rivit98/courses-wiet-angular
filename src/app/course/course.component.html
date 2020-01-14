@@ -1,5 +1,5 @@
 <div class="card mb-5 mr-3" style="width: 19rem;">
-    <img src="{{this.getImageAsBase64()}}" class="card-img-top img-fluid">
+    <img src="{{this.getImageAsBase64()}}" class="card-img-top" height="200px" width="300px">
 
     <ul class="list-group list-group-flush zebra-custom">
         <li class="list-group-item py-4">
@@ -7,13 +7,13 @@
         </li>
         <li class="list-group-item py-5">{{ course.description }}</li>
         <li class="list-group-item py-2">
-            <button type="button" class="btn btn-success">Rozwiń</button>&nbsp;
-            <button type="button" class="btn btn-danger">Usuń</button>
+            <button type="button" class="btn btn-success">Szczegóły</button>&nbsp;
+            <button type="button" class="btn btn-danger" (click)="onDelete()">Usuń</button>
         </li>
         <li class="list-group-item py-2">ECTS: {{ course.ects }}</li>
         <li class="list-group-item py-2">Semestr: {{ course.semester }}</li>
         <li class="list-group-item py-2">Typ zajęć: {{ course.type }}</li>
-        <li class="list-group-item py-2">Limit studentow: {{ course.studentsLimit }}</li>
+        <li class="list-group-item py-2">Limit studentów: {{ course.studentsLimit }}</li>
         <li class="list-group-item py-2">Ocena: {{ this.calculateRating() }}</li>
         <li class="list-group-item py-2">
             <star-rating value={{this.calculateRating()}} totalstars="5" checkedcolor="red" uncheckedcolor="black" size="24px" readonly="{{this.checkIfRated()}}" (rate)="onRate($event)"></star-rating>

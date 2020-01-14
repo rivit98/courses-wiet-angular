@@ -9,7 +9,10 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { CourseComponent } from './course/course.component';
 import { RatingModule } from 'ng-starrating';
 import { ToastrModule } from 'ngx-toastr';
-import { MockDataComponent } from './mock-data/mock-data.component'
+import { MockDataComponent } from './mock-data/mock-data.component';
+import { CourseAddFormComponent } from './course-add-form/course-add-form.component'
+import { ReactiveFormsModule } from '@angular/forms';
+import { CourseFilterComponent } from './course-filter/course-filter.component';
 
 @NgModule({
   declarations: [
@@ -17,14 +20,17 @@ import { MockDataComponent } from './mock-data/mock-data.component'
     CoursesListComponent,
     NavbarComponent,
     CourseComponent,
-    MockDataComponent
+    MockDataComponent,
+    CourseAddFormComponent,
+    CourseFilterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    RatingModule 
+    RatingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

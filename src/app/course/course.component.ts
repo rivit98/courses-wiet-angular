@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Course } from '../interfaces/course';
 import { StarRatingComponent } from 'ng-starrating';
 import { ToastrService } from 'ngx-toastr';
@@ -11,6 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 export class CourseComponent implements OnInit {
 
   @Input('course') course: Course;
+  @Output() onDeleteSignal = new EventEmitter<Course>();
 
   constructor(private toastrService: ToastrService) { }
 
@@ -45,4 +46,8 @@ export class CourseComponent implements OnInit {
     return this.course.ratings.find(entry => entry != undefined && entry.userId === 0 /* tu tez bedzie userid */) != undefined;
   }
 
+  
+  onDelete() : void{
+    this.onDeleteSignal.emit(this.course);
+  }
 }

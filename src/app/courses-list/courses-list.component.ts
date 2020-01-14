@@ -23,6 +23,8 @@ export class CoursesListComponent implements OnInit {
     this.coursesList = this.courseService.getCourses();
   }
 
-  
+  onDeleteSignal(crs : Course) : void{
+    this.courseService.deleteCourse(crs);
+  }
 
 }
