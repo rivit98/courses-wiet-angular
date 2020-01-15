@@ -1,1 +1,24 @@
-<p>course-filter works!</p>
+<div class="container">
+    <h5>Filtrowanie</h5>
+    <div class="row">
+        <div class="col-sm-3">
+            <div>Nazwa:</div>
+            <input class="form-control" placeholder="Wprowadz nazwe do szukania" [(ngModel)]="searchText" (input)="onSearchChange()" />
+        </div>
+        <div class="col-sm-3 ">
+            ECTS:
+            <ng-multiselect-dropdown [placeholder]=" ' ' " [data]="dropdownEcts " [(ngModel)]="selectedEcts " [settings]="dropdownSettings " (onSelect)="onItemSelect($event)" (onDeSelect)="onItemSelect($event)">
+            </ng-multiselect-dropdown>
+        </div>
+        <div class="col-sm-3 ">
+            Semestr:
+            <ng-multiselect-dropdown [placeholder]=" ' ' " [data]="dropdownSemester " [(ngModel)]="selectedSemester " [settings]="dropdownSettings " (onSelect)="onItemSelect($event)" (onDeSelect)="onItemSelect($event)">
+            </ng-multiselect-dropdown>
+        </div>
+        <div class="col-sm-3 ">
+            Ocena:
+            <ng-multiselect-dropdown [placeholder]=" ' ' " [data]="dropdownRate " [(ngModel)]="selectedRate " [settings]="dropdownSettings " (onSelect)="onItemSelect($event)" (onDeSelect)="onItemSelect($event)">
+            </ng-multiselect-dropdown>
+        </div>
+    </div>
+</div>

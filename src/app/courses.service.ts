@@ -1,20 +1,24 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Course } from './interfaces/course';
 import { MockDataComponent } from './mock-data/mock-data.component';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CoursesService {
+export class CoursesService implements OnInit {
 
-  courses: Array<Course>;
+  courses: Course[];
   
   constructor() { 
     this.courses = MockDataComponent.courses_mock;
   }
 
-  getCourses(): Array<Course>{
-    return this.courses;
+  ngOnInit(){
+  }
+
+  getCourses(): Observable<Course[]>{
+    return of(this.courses);
   }
 
   getCourse(courseId : number) : Course{

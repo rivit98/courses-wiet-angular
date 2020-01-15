@@ -34,7 +34,7 @@ export class CourseComponent implements OnInit {
   onRate($event:{oldValue:number, newValue:number, starRating:StarRatingComponent}) {
     let ent = {
       rate: $event.newValue,
-      userId: 0 //tu bedzie chyba jakis userid
+      userId: "0" //tu bedzie chyba jakis userid
     };
     this.course.ratings.push(ent);
     this.toastrService.success("Zapisano ocene ("+ ent.rate + ")", "", {
@@ -43,7 +43,7 @@ export class CourseComponent implements OnInit {
   }
 
   checkIfRated() : boolean{
-    return this.course.ratings.find(entry => entry != undefined && entry.userId === 0 /* tu tez bedzie userid */) != undefined;
+    return this.course.ratings.find(entry => entry != undefined && entry.userId === "0" /* tu tez bedzie userid */) != undefined;
   }
 
   

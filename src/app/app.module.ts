@@ -11,8 +11,13 @@ import { RatingModule } from 'ng-starrating';
 import { ToastrModule } from 'ngx-toastr';
 import { MockDataComponent } from './mock-data/mock-data.component';
 import { CourseAddFormComponent } from './course-add-form/course-add-form.component'
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CourseFilterComponent } from './course-filter/course-filter.component';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { EctsPipe } from './pipes/ects-pipe'
+import { SemesterPipe } from './pipes/semester-pipe'
+import { RatePipe } from './pipes/rate-pipe'
+import { SearchTextPipe } from './pipes/search-text-pipe'
 
 @NgModule({
   declarations: [
@@ -22,15 +27,21 @@ import { CourseFilterComponent } from './course-filter/course-filter.component';
     CourseComponent,
     MockDataComponent,
     CourseAddFormComponent,
-    CourseFilterComponent
+    CourseFilterComponent,
+    EctsPipe,
+    SemesterPipe,
+    RatePipe,
+    SearchTextPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    NgMultiSelectDropDownModule.forRoot(),
     ToastrModule.forRoot(),
     RatingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

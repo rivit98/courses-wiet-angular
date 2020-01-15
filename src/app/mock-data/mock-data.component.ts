@@ -20,19 +20,19 @@ export class MockDataComponent {
       ratings: [
         {
           rate: 1,
-          userId: 1
+          userId: "1"
         },
         {
           rate: 2,
-          userId: 1
+          userId: "1"
         },
         {
           rate: 3,
-          userId: 1
+          userId: "1"
         },
         {
           rate: 4,
-          userId: 1
+          userId: "1"
         }
       ],
       image: "https://www.wykop.pl/cdn/c3201142/comment_f67FA8qjhTKoEvTM0YbAVN4ZZbAoO5w1.jpg",
@@ -48,19 +48,19 @@ export class MockDataComponent {
       ratings: [
         {
           rate: 1,
-          userId: 1
+          userId: "1"
         },
         {
           rate: 2,
-          userId: 1
+          userId: "1"
         },
         {
           rate: 3,
-          userId: 1
+          userId: "1"
         },
         {
           rate: 4,
-          userId: 1
+          userId: "1"
         }
       ],
       image: "https://www.wykop.pl/cdn/c3201142/comment_f67FA8qjhTKoEvTM0YbAVN4ZZbAoO5w1.jpg",
@@ -76,19 +76,19 @@ export class MockDataComponent {
       ratings: [
         {
           rate: 1,
-          userId: 1
+          userId: "1"
         },
         {
           rate: 2,
-          userId: 1
+          userId: "1"
         },
         {
           rate: 3,
-          userId: 1
+          userId: "1"
         },
         {
           rate: 4,
-          userId: 1
+          userId: "1"
         }
       ],		
       image: "https://www.wykop.pl/cdn/c3201142/comment_f67FA8qjhTKoEvTM0YbAVN4ZZbAoO5w1.jpg",
@@ -104,19 +104,19 @@ export class MockDataComponent {
       ratings: [
         {
           rate: 1,
-          userId: 1
+          userId: "1"
         },
         {
           rate: 2,
-          userId: 1
+          userId: "1"
         },
         {
           rate: 3,
-          userId: 1
+          userId: "1"
         },
         {
           rate: 4,
-          userId: 1
+          userId: "1"
         }
       ],		
       image: "https://www.wykop.pl/cdn/c3201142/comment_f67FA8qjhTKoEvTM0YbAVN4ZZbAoO5w1.jpg",
@@ -132,19 +132,19 @@ export class MockDataComponent {
       ratings: [
         {
           rate: 1,
-          userId: 1
+          userId: "1"
         },
         {
           rate: 2,
-          userId: 1
+          userId: "1"
         },
         {
           rate: 3,
-          userId: 1
+          userId: "1"
         },
         {
           rate: 4,
-          userId: 1
+          userId: "1"
         }
       ],		
       image: "https://www.wykop.pl/cdn/c3201142/comment_f67FA8qjhTKoEvTM0YbAVN4ZZbAoO5w1.jpg",
@@ -160,19 +160,19 @@ export class MockDataComponent {
       ratings: [
         {
           rate: 1,
-          userId: 1
+          userId: "1"
         },
         {
           rate: 2,
-          userId: 1
+          userId: "1"
         },
         {
           rate: 3,
-          userId: 1
+          userId: "1"
         },
         {
           rate: 4,
-          userId: 1
+          userId: "1"
         }
       ],		
       image: "https://www.wykop.pl/cdn/c3201142/comment_f67FA8qjhTKoEvTM0YbAVN4ZZbAoO5w1.jpg",
@@ -188,19 +188,19 @@ export class MockDataComponent {
       ratings: [
         {
           rate: 1,
-          userId: 1
+          userId: "1"
         },
         {
           rate: 2,
-          userId: 1
+          userId: "1"
         },
         {
           rate: 3,
-          userId: 1
+          userId: "1"
         },
         {
           rate: 4,
-          userId: 1
+          userId: "1"
         }
       ],		
       image: "https://www.wykop.pl/cdn/c3201142/comment_f67FA8qjhTKoEvTM0YbAVN4ZZbAoO5w1.jpg",
@@ -216,19 +216,19 @@ export class MockDataComponent {
       ratings: [
         {
           rate: 1,
-          userId: 1
+          userId: "1"
         },
         {
           rate: 2,
-          userId: 1
+          userId: "1"
         },
         {
           rate: 3,
-          userId: 1
+          userId: "1"
         },
         {
           rate: 4,
-          userId: 1
+          userId: "1"
         }
       ],		
       image: "https://www.wykop.pl/cdn/c3201142/comment_f67FA8qjhTKoEvTM0YbAVN4ZZbAoO5w1.jpg",
@@ -244,19 +244,19 @@ export class MockDataComponent {
       ratings: [
         {
           rate: 1,
-          userId: 1
+          userId: "1"
         },
         {
           rate: 2,
-          userId: 1
+          userId: "1"
         },
         {
           rate: 3,
-          userId: 1
+          userId: "1"
         },
         {
           rate: 4,
-          userId: 1
+          userId: "1"
         }
       ],		
       image: "https://www.wykop.pl/cdn/c3201142/comment_f67FA8qjhTKoEvTM0YbAVN4ZZbAoO5w1.jpg",
@@ -272,19 +272,19 @@ export class MockDataComponent {
       ratings: [
         {
           rate: 5,
-          userId: 1
+          userId: "1"
         },
         {
           rate: 2,
-          userId: 1
+          userId: "1"
         },
         {
           rate: 3,
-          userId: 1
+          userId: "1"
         },
         {
           rate: 4,
-          userId: 1
+          userId: "1"
         }
       ],		
       image: "https://www.wykop.pl/cdn/c3201142/comment_f67FA8qjhTKoEvTM0YbAVN4ZZbAoO5w1.jpg",
@@ -300,19 +300,19 @@ export class MockDataComponent {
       ratings: [
         {
           rate: 5,
-          userId: 1
+          userId: "1"
         },
         {
           rate: 5,
-          userId: 1
+          userId: "1"
         },
         {
           rate: 3,
-          userId: 1
+          userId: "1"
         },
         {
           rate: 4,
-          userId: 1
+          userId: "1"
         }
       ],		
       image: "https://www.wykop.pl/cdn/c3201142/comment_f67FA8qjhTKoEvTM0YbAVN4ZZbAoO5w1.jpg",
