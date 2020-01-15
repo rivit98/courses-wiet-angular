@@ -24,12 +24,14 @@ export class CourseAddFormComponent implements OnInit {
 		ects: {
 			required: "To pole jest wymagane",
 			max: "Dozwolone wartosci [0;10]",
-			min: "Dozwolone wartosci [0;10]"
+			min: "Dozwolone wartosci [0;10]",
+			pattern: "Podaj liczbę"
 		},
 		semester: {
 			required: "To pole jest wymagane",
 			max: "Dozwolone wartosci [0;7]",
-			min: "Dozwolone wartosci [0;7]"
+			min: "Dozwolone wartosci [0;7]",
+			pattern: "Podaj liczbę"
 		},
 		type: {
 			required: "To pole jest wymagane"
@@ -37,7 +39,8 @@ export class CourseAddFormComponent implements OnInit {
 		studentsLimit: {
 			required: "To pole jest wymagane",
 			max: "Musi być mniejsze od 1000",
-			min: "Musi być większe od 0"
+			min: "Musi być większe od 0",
+			pattern: "Podaj liczbę"
 		},
 		image: {
 
@@ -50,10 +53,10 @@ export class CourseAddFormComponent implements OnInit {
 		this.addForm = this.formBuilder.group({
 			name: ['', Validators.required],
 			desc: ['', Validators.required],
-			ects: ['', [Validators.required, Validators.min(0), Validators.max(10)]],
-			semester: ['', [Validators.required, Validators.min(1), Validators.max(7)]],
+			ects: ['', [Validators.required, Validators.min(0), Validators.max(10), Validators.pattern(/^[0-9]*$/)]],
+			semester: ['', [Validators.required, Validators.min(1), Validators.max(7), Validators.pattern(/^[0-9]*$/)]],
 			type: ['', Validators.required],
-			studentsLimit: ['', [Validators.required, Validators.min(0), Validators.max(1000)]],
+			studentsLimit: ['', [Validators.required, Validators.min(0), Validators.max(1000), Validators.pattern(/^[0-9]*$/)]],
 			image: ['']
 		});
 
