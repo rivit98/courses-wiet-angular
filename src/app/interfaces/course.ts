@@ -17,5 +17,5 @@ export interface Course{
 	ratings: RateEntry[],
 	image: string,
 	description: string,
-	enrolledUsers?: string[]
+	enrolledUsers: string[]
 }

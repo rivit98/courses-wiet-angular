@@ -54,11 +54,10 @@ export class LoginPanelComponent implements OnInit {
 		if (this.loginForm.invalid) {
 			return;
 		}
+		
 		this.loading = true;
-
 		let loginForm = this.loginForm.controls;
 
-		console.log(loginForm);
 		this.authService.login(loginForm.username.value, loginForm.password.value)
 			.then((user) => {
 				this.router.navigate(['/dashboard']);

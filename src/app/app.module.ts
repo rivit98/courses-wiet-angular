@@ -26,14 +26,15 @@ import { environment } from 'src/environments/environment';
 import { LoginPanelComponent } from './login-panel/login-panel.component';
 import { RegisterPanelComponent } from './register-panel/register-panel.component';
 import { NgxNavbarModule } from 'ngx-bootstrap-navbar';
+import { LoggedGuard, NotLoggedGuard } from './auth.guard'
 
 
 const routes: Routes = [
 	{ path: 'dashboard', component: CoursesListComponent },
 	{ path: '', redirectTo:'/dashboard', pathMatch: 'full'  },
-	{ path: 'details/:id', component: CourseDetailsComponent },
-	{ path: 'login', component: LoginPanelComponent },
-	{ path: 'register', component: RegisterPanelComponent },
+	{ path: 'details/:id', component: CourseDetailsComponent, canActivate: [NotLoggedGuard] },
+	{ path: 'login', component: LoginPanelComponent, canActivate: [LoggedGuard] },
+	{ path: 'register', component: RegisterPanelComponent, canActivate: [LoggedGuard] },
 	{ path: '**', component: PageNotFoundComponent }
 ];
 

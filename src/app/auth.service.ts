@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/index';
 import * as firebase from 'firebase';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { map } from 'rxjs/operators';
 
 export interface Credentials {
 	email: string;

@@ -11,7 +11,8 @@ export class CoursesService implements OnInit {
 	courses: Course[];
 
 	constructor() {
-		this.courses = MockDataComponent.courses_mock;
+		this.courses = MockDataComponent.courses_mock; ////////////////////////
+		this.courses.forEach(c => c.enrolledUsers = []) //quick fix
 	}
 
 	ngOnInit() {
@@ -48,5 +49,4 @@ export class CoursesService implements OnInit {
 		}
 		return Math.round(res * 100) / 100;
 	}
-
 }
