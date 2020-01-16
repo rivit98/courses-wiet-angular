@@ -1,1 +1,33 @@
-<p>login-panel works!</p>
+<div class="row justify-content-center">
+    <div class="card col-6">
+        <h3 class="card-header text-center">Logowanie</h3>
+        <div class="card-body ">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <div class="form-group col-6">
+                    <label for="username">Email</label>
+                    <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                        <span *ngFor="let eachError of objectKeys(f.username.errors)">
+							<div>{{ validationErrorsMsg.username[eachError] }}</div>
+						</span>
+                    </div>
+                </div>
+                <div class="form-group col-6">
+                    <label for="password">Hasło</label>
+                    <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                        <span *ngFor="let eachError of objectKeys(f.password.errors)">
+							<div>{{ validationErrorsMsg.password[eachError] }}</div>
+						</span>
+                    </div>
+                </div>
+                <div class="form-group col-6">
+                    <button [disabled]="loading" class="btn btn-primary">Zaloguj</button>&nbsp;
+                </div>
+                <div class="card-footer alert alert-danger" *ngIf="errorMessage.length" role="alert">
+                    {{ errorMessage }}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

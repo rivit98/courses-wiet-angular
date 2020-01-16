@@ -10,15 +10,19 @@
             <ng-multiselect-dropdown [placeholder]=" ' ' " [data]="dropdownEcts " [(ngModel)]="selectedEcts " [settings]="dropdownSettings " (onSelect)="onItemSelect($event)" (onDeSelect)="onItemSelect($event)">
             </ng-multiselect-dropdown>
         </div>
-        <div class="col-sm-3 ">
+        <div class="col-sm-2 ">
             Semestr:
             <ng-multiselect-dropdown [placeholder]=" ' ' " [data]="dropdownSemester " [(ngModel)]="selectedSemester " [settings]="dropdownSettings " (onSelect)="onItemSelect($event)" (onDeSelect)="onItemSelect($event)">
             </ng-multiselect-dropdown>
         </div>
-        <div class="col-sm-3 ">
+        <div class="col-sm-2 ">
             Ocena:
             <ng-multiselect-dropdown [placeholder]=" ' ' " [data]="dropdownRate " [(ngModel)]="selectedRate " [settings]="dropdownSettings " (onSelect)="onItemSelect($event)" (onDeSelect)="onItemSelect($event)">
             </ng-multiselect-dropdown>
+        </div>
+        <div class="col-sm-2 ">
+            <br>
+            <button type="button" (click)="resetSelection()" class="btn btn-secondary">Wyczyść filtry</button>
         </div>
     </div>
 </div>

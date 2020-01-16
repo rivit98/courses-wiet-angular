@@ -31,7 +31,6 @@ export class CourseFilterComponent implements OnInit {
 
 	dropdownSettings: IDropdownSettings = {};
 
-
 	ngOnInit() {
 		this.coursesService.getCourses().subscribe(courses => this.coursesList = courses);
 
@@ -49,6 +48,14 @@ export class CourseFilterComponent implements OnInit {
 		for (let i of [1, 2, 3, 4, 5]) {
 			this.pushToArray(this.dropdownRate, i);
 		}
+	}
+
+	resetSelection(){
+		this.selectedEcts = [];
+		this.searchText = "";
+		this.selectedRate = [];
+		this.selectedSemester = [];
+		this.emitFilterCriteria();
 	}
 
 	onItemSelect() {

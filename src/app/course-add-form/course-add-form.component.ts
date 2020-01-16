@@ -93,10 +93,7 @@ export class CourseAddFormComponent implements OnInit {
 			ratings: []
 		}
 
-		console.log(toAdd);
-
 		this.coursesService.addCourse(toAdd);
-
 	}
 
 	onReset(): void {
