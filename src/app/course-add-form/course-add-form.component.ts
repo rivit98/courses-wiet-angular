@@ -80,7 +80,7 @@ export class CourseAddFormComponent implements OnInit {
 		console.log(addForm);
 
 		let toAdd: Course = {
-			id: 321412, //co tu ma byc, czy id potrzebne wgl
+			id: "321412", //TODO: co tu ma byc, czy id potrzebne wgl
 			name: addForm.name.value,
 			ects: addForm.ects.value,
 			semester: addForm.semester.value,

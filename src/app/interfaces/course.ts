@@ -8,7 +8,7 @@ export enum CourseType{
 }
 
 export interface Course{
-	id: number,
+	id: string,
 	name: string,
 	ects: number,
 	semester: number,
@@ -16,5 +16,6 @@ export interface Course{
 	studentsLimit: number,
 	ratings: RateEntry[],
 	image: string,
-	description: string
+	description: string,
+	enrolledUsers?: string[]
 }

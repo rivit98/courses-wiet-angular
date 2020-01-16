@@ -1,5 +1,5 @@
 @import '../node_modules/ngx-toastr/toastr.css';
 body {
-    padding-top: 70px;
+    padding-top: 80px;
     background-color: rgb(245, 245, 245);
 }

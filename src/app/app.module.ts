@@ -19,11 +19,21 @@ import { RatePipe } from './pipes/rate-pipe'
 import { SearchTextPipe } from './pipes/search-text-pipe';
 import { CourseDetailsComponent } from './course-details/course-details.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component'
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { environment } from 'src/environments/environment';
+import { LoginPanelComponent } from './login-panel/login-panel.component';
+import { RegisterPanelComponent } from './register-panel/register-panel.component';
+import { NgxNavbarModule } from 'ngx-bootstrap-navbar';
+
 
 const routes: Routes = [
 	{ path: 'dashboard', component: CoursesListComponent },
 	{ path: '', redirectTo:'/dashboard', pathMatch: 'full'  },
 	{ path: 'details/:id', component: CourseDetailsComponent },
+	{ path: 'login', component: LoginPanelComponent },
+	{ path: 'register', component: RegisterPanelComponent },
 	{ path: '**', component: PageNotFoundComponent }
 ];
 
@@ -41,10 +51,16 @@ const routes: Routes = [
 		RatePipe,
 		SearchTextPipe,
 		CourseDetailsComponent,
-		PageNotFoundComponent
+		PageNotFoundComponent,
+		LoginPanelComponent,
+		RegisterPanelComponent
 	],
 	imports: [
 		BrowserModule,
+		NgxNavbarModule,
+		AngularFireModule.initializeApp(environment.firebaseConfig),
+		AngularFireAuthModule,
+		AngularFireDatabaseModule,
 		RouterModule.forRoot(routes),
 		BrowserAnimationsModule,
 		NgMultiSelectDropDownModule.forRoot(),
