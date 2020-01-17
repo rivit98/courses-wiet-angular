@@ -32,7 +32,7 @@
                                 <td>Ocena</td>
                                 <td>
                                     {{ currentRating }}
-                                    <star-rating [value]="this.currentRating" totalstars="5" checkedcolor="red" uncheckedcolor="black" size="24px" [readonly]="ratedAlready" (rate)="onRate($event)"></star-rating>
+                                    <star-rating [value]="this.currentRating" totalstars="5" checkedcolor="red" uncheckedcolor="black" size="24px" [readonly]="ratedAlready || !enrolledAlready" (rate)="onRate($event)"></star-rating>
                                 </td>
                             </tr>
                             <tr>
@@ -55,8 +55,7 @@
                 <button type="button" class="btn btn-primary" (click)="onEnroll()" [disabled]="enrolledAlready">
 					{{ enrolledAlready ? "Jesteś już zapisany na ten kurs" : "Zapisz się na kurs" }}
 				</button>&nbsp;
-                <button type="button" class="btn btn-secondary" [routerLink]="['']">Powrót</button>
-
+                <button type="button" class="btn btn-secondary" [routerLink]="['']">Powrót</button> {{enrolledAlready}}
 
             </div>
         </div>

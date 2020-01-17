@@ -3,7 +3,7 @@ import { CoursesService } from '../courses.service';
 import { ActivatedRoute } from '@angular/router';
 import { Course } from '../interfaces/course';
 import { Router } from "@angular/router";
-import { ToastrService } from 'ngx-toastr';
+import { MessageService } from '../message.service';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -22,7 +22,7 @@ export class CourseDetailsComponent implements OnInit {
 		private coursesService: CoursesService,
 		private route: ActivatedRoute,
 		private router: Router,
-		private toastrService: ToastrService,
+		private messageService: MessageService,
 		private authService: AuthService
 	) { }
 
@@ -54,11 +54,16 @@ export class CourseDetailsComponent implements OnInit {
 		// this.ratedAlready = this.checkIfRated()
 
 		// if(this.ratedAlready){
-		// 	this.toastrService.error("Oceniałeś już ten kurs!", "", {
-		// 		positionClass: 'toast-bottom-right'
-		// 	});
+		// 	// this.toastrService.error("Oceniałeś już ten kurs!", "", {
+		// 	// 	positionClass: 'toast-bottom-right'
+		// 	// });
 		// 	return;
 		// }
+
+		if(!this.enrolledAlready){
+			this.messageService.error("Musisz być zapisany na kurs, aby go ocenić!");
+			return;
+		}
 
 		this.ratedAlready = true;
 
@@ -67,9 +72,7 @@ export class CourseDetailsComponent implements OnInit {
 			userId: this.authService.user.uid //tu bedzie chyba jakis userid
 		};
 		this.course.ratings.push(ent);
-		this.toastrService.success("Zapisano ocene (" + ent.rate + ")", "", {
-			positionClass: 'toast-bottom-right'
-		});
+		this.messageService.success("Zapisano ocene (" + ent.rate + ")")
 
 		this.calculateRating();
 	}
@@ -80,17 +83,13 @@ export class CourseDetailsComponent implements OnInit {
 		// }
 
 		if(this.course.enrolledUsers.length >= this.course.studentsLimit){
-			this.toastrService.error("Brak miejsc", "", {
-				positionClass: 'toast-bottom-right'
-			});
+			this.messageService.error("Brak miejsc")
 			return;
 		}
 
 		this.course.enrolledUsers.push(this.authService.user.uid);
 		this.enrolledAlready = true;
 
-		this.toastrService.success("Zapisano pomyślnie", "", {
-			positionClass: 'toast-bottom-right'
-		});
+		this.messageService.success("Zapisano pomyślnie");
 	}
 }

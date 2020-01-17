@@ -90,7 +90,8 @@ export class CourseAddFormComponent implements OnInit {
 					"https://www.wykop.pl/cdn/c3201142/comment_f67FA8qjhTKoEvTM0YbAVN4ZZbAoO5w1.jpg" : // i know, hardcoding stuff
 					addForm.image.value,
 			description: addForm.desc.value,
-			ratings: []
+			ratings: [],
+			enrolledUsers: []
 		}
 
 		this.coursesService.addCourse(toAdd);

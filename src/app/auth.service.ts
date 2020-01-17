@@ -4,8 +4,7 @@ import { User } from 'firebase';
 import { Observable } from 'rxjs/index';
 import * as firebase from 'firebase';
 import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
-import { map } from 'rxjs/operators';
+import { MessageService } from './message.service';
 
 export interface Credentials {
 	email: string;
@@ -19,7 +18,7 @@ export class AuthService {
 	constructor(
 		private fireAuth: AngularFireAuth,
 		private router: Router,
-		private toastrService: ToastrService
+		private messageService: MessageService
 		) { }
 
 	get user(): User | null {
@@ -35,9 +34,7 @@ export class AuthService {
 				localStorage.setItem('user', JSON.stringify(res))
 				resolve(res);
 				let dt = new Date(res.user.metadata.lastSignInTime);
-				this.toastrService.success("Ostatnia wizyta " + dt.toLocaleString(), "", {
-					positionClass: 'toast-bottom-right'
-				});
+				this.messageService.success("Ostatnia wizyta " + dt.toLocaleString())
 			})
 			.catch((err) => reject(err))
 		})
@@ -49,9 +46,7 @@ export class AuthService {
 			.then((res) => {
 				localStorage.setItem('user', JSON.stringify(res));
 				resolve(res);
-				this.toastrService.success("Konto założone pomyślnie!", "", {
-					positionClass: 'toast-bottom-right'
-				});
+				this.messageService.success("Konto założone pomyślnie!");
 			})
 			.catch((err) => reject(err))
 		})
@@ -61,9 +56,7 @@ export class AuthService {
 		return this.fireAuth.auth.signOut().then(() => {
 			localStorage.removeItem('user');
 			this.router.navigate(['/dashboard']);
-			this.toastrService.success("Wylogowano", "", {
-				positionClass: 'toast-bottom-right'
-			});
+			this.messageService.success("Wylogowano");
 		})
 	}
 }

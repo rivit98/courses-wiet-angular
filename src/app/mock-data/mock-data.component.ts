@@ -36,7 +36,8 @@ export class MockDataComponent {
 				}
 			],
 			image: "https://www.wykop.pl/cdn/c3201142/comment_f67FA8qjhTKoEvTM0YbAVN4ZZbAoO5w1.jpg",
-			description: "opis"
+			description: "opis",
+			enrolledUsers: []
 		},
 		{
 			id: "2",
@@ -64,7 +65,8 @@ export class MockDataComponent {
 				}
 			],
 			image: "https://www.wykop.pl/cdn/c3201142/comment_f67FA8qjhTKoEvTM0YbAVN4ZZbAoO5w1.jpg",
-			description: "opis"
+			description: "opis",
+			enrolledUsers: []
 		},
 		{
 			id: "3",
@@ -77,7 +79,8 @@ export class MockDataComponent {
 				
 			],
 			image: "https://www.wykop.pl/cdn/c3201142/comment_f67FA8qjhTKoEvTM0YbAVN4ZZbAoO5w1.jpg",
-			description: "opis"
+			description: "opis",
+			enrolledUsers: []
 		},
 		{
 			id: "4",
@@ -105,7 +108,8 @@ export class MockDataComponent {
 				}
 			],
 			image: "https://www.wykop.pl/cdn/c3201142/comment_f67FA8qjhTKoEvTM0YbAVN4ZZbAoO5w1.jpg",
-			description: "opis"
+			description: "opis",
+			enrolledUsers: []
 		},
 		{
 			id: "5",
@@ -133,7 +137,8 @@ export class MockDataComponent {
 				}
 			],
 			image: "https://www.wykop.pl/cdn/c3201142/comment_f67FA8qjhTKoEvTM0YbAVN4ZZbAoO5w1.jpg",
-			description: "opis"
+			description: "opis",
+			enrolledUsers: []
 		},
 		{
 			id: "6",
@@ -161,7 +166,8 @@ export class MockDataComponent {
 				}
 			],
 			image: "https://www.wykop.pl/cdn/c3201142/comment_f67FA8qjhTKoEvTM0YbAVN4ZZbAoO5w1.jpg",
-			description: "opis"
+			description: "opis",
+			enrolledUsers: []
 		},
 		{
 			id: "7",
@@ -189,7 +195,8 @@ export class MockDataComponent {
 				}
 			],
 			image: "https://www.wykop.pl/cdn/c3201142/comment_f67FA8qjhTKoEvTM0YbAVN4ZZbAoO5w1.jpg",
-			description: "opis"
+			description: "opis",
+			enrolledUsers: []
 		},
 		{
 			id: "8",
@@ -217,7 +224,8 @@ export class MockDataComponent {
 				}
 			],
 			image: "https://www.wykop.pl/cdn/c3201142/comment_f67FA8qjhTKoEvTM0YbAVN4ZZbAoO5w1.jpg",
-			description: "opis"
+			description: "opis",
+			enrolledUsers: []
 		},
 		{
 			id: "9",
@@ -245,7 +253,8 @@ export class MockDataComponent {
 				}
 			],
 			image: "https://www.wykop.pl/cdn/c3201142/comment_f67FA8qjhTKoEvTM0YbAVN4ZZbAoO5w1.jpg",
-			description: "opis"
+			description: "opis",
+			enrolledUsers: []
 		},
 		{
 			id: "10",
@@ -273,7 +282,8 @@ export class MockDataComponent {
 				}
 			],
 			image: "https://www.wykop.pl/cdn/c3201142/comment_f67FA8qjhTKoEvTM0YbAVN4ZZbAoO5w1.jpg",
-			description: "opis"
+			description: "opis",
+			enrolledUsers: []
 		},
 		{
 			id: "11",
@@ -301,7 +311,8 @@ export class MockDataComponent {
 				}
 			],
 			image: "https://www.wykop.pl/cdn/c3201142/comment_f67FA8qjhTKoEvTM0YbAVN4ZZbAoO5w1.jpg",
-			description: "opis"
+			description: "opis",
+			enrolledUsers: []
 		}
 	];
 
