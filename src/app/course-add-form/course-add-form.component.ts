@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CoursesService } from '../courses.service';
 import { CourseType, Course } from '../interfaces/course'
+import { MessageService } from '../message.service';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-course-add-form',
@@ -47,7 +49,11 @@ export class CourseAddFormComponent implements OnInit {
 		}
 	}
 
-	constructor(private formBuilder: FormBuilder, private coursesService: CoursesService) { }
+	constructor(
+		private formBuilder: FormBuilder, 
+		private coursesService: CoursesService,
+		private messageService: MessageService
+		) { }
 
 	ngOnInit() {
 		this.addForm = this.formBuilder.group({
@@ -77,14 +83,11 @@ export class CourseAddFormComponent implements OnInit {
 
 		let addForm = this.addForm.controls;
 
-		console.log(addForm);
-
 		let toAdd: Course = {
-			id: "321412", //TODO: co tu ma byc, czy id potrzebne wgl
 			name: addForm.name.value,
 			ects: addForm.ects.value,
 			semester: addForm.semester.value,
-			type: addForm.type.value,
+			type: CourseType[addForm.type.value], //tu bedzie sypac bledami 100%
 			studentsLimit: addForm.studentsLimit.value,
 			image: (addForm.image == null || addForm.image.value == "") ?
 					"https://www.wykop.pl/cdn/c3201142/comment_f67FA8qjhTKoEvTM0YbAVN4ZZbAoO5w1.jpg" : // i know, hardcoding stuff
@@ -93,7 +96,7 @@ export class CourseAddFormComponent implements OnInit {
 			ratings: [],
 			enrolledUsers: []
 		}
-
+		this.messageService.success("Kurs dodany!")
 		this.coursesService.addCourse(toAdd);
 	}
 
@@ -101,4 +104,5 @@ export class CourseAddFormComponent implements OnInit {
 		this.submitted = false;
 		this.addForm.reset();
 	}
+
 }

@@ -1,23 +1,20 @@
 <div class="container-fluid text-center">
-    <app-course-filter (filterCriteriaChanged)="filterChanged($event)"></app-course-filter>
-    <div class="row col-md-12 justify-content-center mt-5">
-        <h1 class="text-center">Lista Kursów</h1>
-    </div>
-    <div class="row col-md-12 justify-content-center">
-        <ng-container *ngIf="(coursesList | 
-        ectsPipe: filterCriteria.ectsValues |
-        semesterPipe: filterCriteria.semesterValues |
-        ratePipe: filterCriteria.rateValues |
-        searchTextPipe : filterCriteria.textValue
-        ) as filteredCourses">
+    <ng-container *ngIf="(coursesList | filterPipe: filterCriteria) as filteredCourses">
+        <app-course-filter [filteredList]="filteredCourses"></app-course-filter>
+        <div class="row col-md-12 justify-content-center mt-5">
+            <h1 class="text-center">Lista Kursów</h1>
+        </div>
+        <div class="row col-md-12 justify-content-center">
             <app-course *ngFor="let c of filteredCourses" [course]="c" (onDeleteSignal)="onDeleteSignal($event)">
 
             </app-course>
             <div *ngIf="!filteredCourses.length" class="alert alert-danger w-75 p-3" role="alert">
                 Brak kursów!
             </div>
-        </ng-container>
-    </div>
+        </div>
 
-    <app-course-add-form></app-course-add-form>
+    </ng-container>
+
+    <!-- to powinno byc poza listą raczej -->
+    <app-course-add-form *ngIf="authService.isAdmin()"></app-course-add-form>
 </div>

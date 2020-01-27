@@ -8,7 +8,7 @@ export enum CourseType{
 }
 
 export interface Course{
-	id: string,
+	id?: string,
 	name: string,
 	ects: number,
 	semester: number,

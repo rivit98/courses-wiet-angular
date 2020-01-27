@@ -1,0 +1,81 @@
+<div class="row justify-content-center">
+    <div class="card mt-3 text-center">
+        <h5 class="card-header">Edycja kursu</h5>
+        <div class="card-body">
+            <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+                <div class="form-row justify-content-center">
+                    <div class="form-group col-6">
+                        <label>Nazwa</label>
+                        <input type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+                        <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                            <span *ngFor="let eachError of objectKeys(f.name.errors)">
+								<div>{{ validationErrorsMsg.name[eachError] }}</div>
+							</span>
+                        </div>
+                    </div>
+                    <div class="form-group col-6">
+                        <label>Zdjęcie</label>
+                        <input type="url" formControlName="image" class="form-control" placeholder="Domyślne zdjęcie" />
+                    </div>
+                </div>
+
+                <div class="form-row justify-content-center">
+                    <div class="form-group col-3">
+                        <label>ECTS</label>
+                        <input type="text" formControlName="ects" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.ects.errors }" />
+                        <div *ngIf="submitted && f.ects.errors" class="invalid-feedback">
+                            <span *ngFor="let eachError of objectKeys(f.ects.errors)">
+								<div>{{ validationErrorsMsg.ects[eachError] }}</div>
+							</span>
+                        </div>
+                    </div>
+                    <div class="form-group col-3">
+                        <label>Semestr</label>
+                        <input type="text" formControlName="semester" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.semester.errors }" />
+                        <div *ngIf="submitted && f.semester.errors" class="invalid-feedback">
+                            <span *ngFor="let eachError of objectKeys(f.semester.errors)">
+								<div>{{ validationErrorsMsg.semester[eachError] }}</div>
+							</span>
+                        </div>
+                    </div>
+                    <div class="form-group col-3">
+                        <label>Limit osób</label>
+                        <input type="text" formControlName="studentsLimit" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.studentsLimit.errors }" />
+                        <div *ngIf="submitted && f.studentsLimit.errors" class="invalid-feedback">
+                            <span *ngFor="let eachError of objectKeys(f.studentsLimit.errors)">
+								<div>{{ validationErrorsMsg.studentsLimit[eachError] }}</div>
+							</span>
+                        </div>
+                    </div>
+                    <div class="form-group col-3">
+                        <label>Typ zajęć</label>
+                        <select [(ngModel)]="defaultValue" formControlName="type" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.type.errors }">
+							<option *ngFor="let option of CourseType | keyvalue" [ngValue]="option.value">{{ option.value }}</option>
+
+						</select>
+                        <div *ngIf="submitted && f.type.errors" class="invalid-feedback">
+                            <span *ngFor="let eachError of objectKeys(f.type.errors)">
+								<div>{{ validationErrorsMsg.type[eachError] }}</div>
+							</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row justify-content-center">
+                    <div class="form-group col-8">
+                        <label>Opis</label>
+                        <textarea formControlName="desc" class="md-textarea form-control" rows="3" [ngClass]="{ 'is-invalid': submitted && f.desc.errors }"></textarea>
+                        <div *ngIf="submitted && f.desc.errors" class="invalid-feedback">
+                            <span *ngFor="let eachError of objectKeys(f.desc.errors)">
+								<div>{{ validationErrorsMsg.desc[eachError] }}</div>
+							</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-primary mr-1">Zapisz zmiany</button>
+                    <button class="btn btn-secondary" type="reset" (click)="onReset()">Wyczyść</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

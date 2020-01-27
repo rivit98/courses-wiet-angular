@@ -17,7 +17,11 @@
                 <a class="nav-link" routerLink="/register">Rejestracja</a>
             </li>
             <li class="nav-item ml-5" *ngIf="loggedAs.length">
-                <button class="btn btn-success" routerLink="">{{ loggedAs }}</button>
+                <button class="btn btn-success" routerLink="">{{ loggedAs }}
+					<ng-container *ngIf="admin">
+						[Admin]
+					</ng-container>
+				</button>
             </li>
             <li class="nav-item" *ngIf="loggedAs.length">
                 <button class="btn btn-info ml-2" (click)="onClickLogout()">Wyloguj</button>

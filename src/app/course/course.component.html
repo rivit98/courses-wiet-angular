@@ -8,7 +8,7 @@
         <!-- <li class="list-group-item py-5">{{ course.description }}</li> -->
         <li class="list-group-item py-2">
             <button type="button" class="btn btn-success" [routerLink]="['/details',course.id]">Szczegóły</button>&nbsp;
-            <button type="button" class="btn btn-danger" (click)="onDelete()">Usuń</button>
+            <button *ngIf="authService.isAdmin()" type="button" class="btn btn-danger" (click)="onDelete()">Usuń</button>
         </li>
         <li class="list-group-item py-2">ECTS: {{ course.ects }}</li>
         <li class="list-group-item py-2">Semestr: {{ course.semester }}</li>

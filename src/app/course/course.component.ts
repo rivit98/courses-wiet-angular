@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Course } from '../interfaces/course';
 import { CoursesService } from '../courses.service';
 import { MessageService } from '../message.service';
+import { AuthService } from '../auth.service';
 
 @Component({
 	selector: 'app-course',
@@ -15,7 +16,8 @@ export class CourseComponent implements OnInit {
 
 	constructor(
 		private messageService: MessageService,
-		private coursesService: CoursesService
+		private coursesService: CoursesService,
+		private authService: AuthService
 		) { }
 
 	ngOnInit() {
@@ -28,16 +30,16 @@ export class CourseComponent implements OnInit {
 	onRate($event: { oldValue: number, newValue: number }) {
 		let ent = {
 			rate: $event.newValue,
-			userId: "0" //tu bedzie chyba jakis userid
+			userId: this.authService.getCurrentUser().id
 		};
 		this.course.ratings.push(ent);
 		this.messageService.success("Zapisano ocene (" + ent.rate + ")")
 	}
 
 	checkIfRated(): boolean {
-		return this.course.ratings.find(entry => entry != undefined && entry.userId === "0" /* tu tez bedzie userid */) != undefined;
+		return this.course.ratings
+				.find(entry => entry != undefined && entry.userId === this.authService.getCurrentUser().id) != undefined;
 	}
-
 
 	onDelete(): void {
 		this.onDeleteSignal.emit(this.course);

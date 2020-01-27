@@ -11,12 +11,11 @@ export class MockDataComponent {
 
 	public static courses_mock: Course[] = [
 		{
-			id: "1",
 			name: "wdi",
 			ects: 6,
 			semester: 1,
 			type: CourseType.Lecture,
-			studentsLimit: 0,
+			studentsLimit: 1,
 			ratings: [
 				{
 					rate: 1,
@@ -40,7 +39,6 @@ export class MockDataComponent {
 			enrolledUsers: []
 		},
 		{
-			id: "2",
 			name: "asd",
 			ects: 4,
 			semester: 2,
@@ -69,7 +67,6 @@ export class MockDataComponent {
 			enrolledUsers: []
 		},
 		{
-			id: "3",
 			name: "fizyka",
 			ects: 5,
 			semester: 2,
@@ -83,7 +80,6 @@ export class MockDataComponent {
 			enrolledUsers: []
 		},
 		{
-			id: "4",
 			name: "dyskretna",
 			ects: 3,
 			semester: 1,
@@ -112,7 +108,6 @@ export class MockDataComponent {
 			enrolledUsers: []
 		},
 		{
-			id: "5",
 			name: "analiza",
 			ects: 6,
 			semester: 1,
@@ -141,7 +136,6 @@ export class MockDataComponent {
 			enrolledUsers: []
 		},
 		{
-			id: "6",
 			name: "wdai",
 			ects: 2,
 			semester: 3,
@@ -170,7 +164,6 @@ export class MockDataComponent {
 			enrolledUsers: []
 		},
 		{
-			id: "7",
 			name: "bazy danych",
 			ects: 4,
 			semester: 3,
@@ -199,7 +192,6 @@ export class MockDataComponent {
 			enrolledUsers: []
 		},
 		{
-			id: "8",
 			name: "programowanie funkcyjne",
 			ects: 2,
 			semester: 3,
@@ -228,7 +220,6 @@ export class MockDataComponent {
 			enrolledUsers: []
 		},
 		{
-			id: "9",
 			name: "programowanie obiektowe",
 			ects: 3,
 			semester: 5,
@@ -257,7 +248,6 @@ export class MockDataComponent {
 			enrolledUsers: []
 		},
 		{
-			id: "10",
 			name: "statystyka",
 			ects: 4,
 			semester: 4,
@@ -286,7 +276,6 @@ export class MockDataComponent {
 			enrolledUsers: []
 		},
 		{
-			id: "11",
 			name: "algebra",
 			ects: 2,
 			semester: 4,

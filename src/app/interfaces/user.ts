@@ -1,8 +1,10 @@
 export interface User{
 	id: string,
-	username: string,
-	role:{
-		admin: boolean,
-		reader: boolean
-	}
+	email: string,
+	role: Role
+}
+
+export enum Role{
+	User = 0,
+	Admin = 1
 }

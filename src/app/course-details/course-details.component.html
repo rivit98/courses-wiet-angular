@@ -55,9 +55,9 @@
                 <button type="button" class="btn btn-primary" (click)="onEnroll()" [disabled]="enrolledAlready">
 					{{ enrolledAlready ? "Jesteś już zapisany na ten kurs" : "Zapisz się na kurs" }}
 				</button>&nbsp;
-                <button type="button" class="btn btn-secondary" [routerLink]="['']">Powrót</button> {{enrolledAlready}}
-
+                <button type="button" class="btn btn-secondary" [routerLink]="['']">Powrót</button>
             </div>
         </div>
     </div>
 </div>
+<app-edit-course-form *ngIf="authService.isAdmin()" [currentCourse]="course" (onEditSignal)="onEdit($event)"></app-edit-course-form>
