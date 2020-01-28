@@ -22,7 +22,7 @@ export class NavbarComponent implements OnInit {
 	ngOnInit() {
 		this.authService.user.subscribe((user) => {
 			if (user) {
-				this.loggedAs = user.email;
+				this.loggedAs = user.email.split('@')[0];
 				if(user.role === Role.Admin){
 					this.admin = true;
 				}else{

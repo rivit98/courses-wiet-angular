@@ -25,9 +25,9 @@ export class CoursesService implements OnInit {
 			this.courses = data;
 
 			// uncomment to clear db
-			// this.courses.forEach(c =>{
-			// 	this.fireCloudService.deleteCourse(c.id)
-			// })
+			this.courses.forEach(c =>{
+				// this.fireCloudService.deleteCourse(c.id)
+			})
 		})
 	}
 

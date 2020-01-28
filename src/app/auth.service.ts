@@ -5,6 +5,7 @@ import { Observable, BehaviorSubject } from 'rxjs/index';
 import * as firebase from 'firebase';
 import { Router } from '@angular/router';
 import { MessageService } from './message.service';
+import { FirestoreService } from './firestore.service';
 
 
 @Injectable({
@@ -18,7 +19,8 @@ export class AuthService {
 	constructor(
 		private fireAuth: AngularFireAuth,
 		private router: Router,
-		private messageService: MessageService
+		private messageService: MessageService,
+		private fireCloudService: FirestoreService
 	) {
 		let user = JSON.parse(localStorage.getItem('user'));
 		this.userSubject = new BehaviorSubject<User>(null);
@@ -30,7 +32,7 @@ export class AuthService {
 				localStorage.setItem('user', JSON.stringify(user));
 			} else {
 				this.userSubject.next(null)
-				localStorage.setItem('user', null);
+				localStorage.removeItem('user')
 			}
 		})
 	}
@@ -44,12 +46,11 @@ export class AuthService {
 	}
 
 	isLogged(): boolean {
-		const user = JSON.parse(localStorage.getItem('user'));
-		return user !== null;
+		return localStorage.getItem('user') !== null;
 	}
 
 	async login(email: string, password: string) {
-		firebase.auth().setPersistence(firebase.auth.Auth.Persistence.NONE);
+		await firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
 
 		const res = await this.fireAuth.auth.signInWithEmailAndPassword(email, password);
 		let dt = new Date(res.user.metadata.lastSignInTime);
@@ -57,7 +58,8 @@ export class AuthService {
 	}
 
 	async register(email: string, password: string) {
-		const res = await this.fireAuth.auth.createUserWithEmailAndPassword(email, password);
+		await this.fireAuth.auth.createUserWithEmailAndPassword(email, password);
+		this.fireCloudService.addUser(email, Role.User)
 		this.messageService.success("Konto założone pomyślnie!");
 	}
 
@@ -70,12 +72,17 @@ export class AuthService {
 	}
 
 	setUserData(user: firebase.User) {
-		//tu get z angular document role
-		this.userSubject.next({
+		let usr : User = {
 			id: user.uid,
 			email: user.email,
-			role: Role.Admin
-			// role: Role.User
+			role: Role.User
+		};
+		this.fireCloudService.getUserRole(user.email).then(res => {
+			usr.role = res;
+		}).catch(err => {
+			console.log(err)
+		}).finally(() =>{
+			this.userSubject.next(usr)
 		})
 	}
 

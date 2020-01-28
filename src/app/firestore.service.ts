@@ -3,6 +3,8 @@ import { AngularFirestore } from 'angularfire2/firestore';
 import { Course } from './interfaces/course';
 import { RateEntry } from './interfaces/ratings';
 import * as firebase from 'firebase';
+import { Role } from './interfaces/user';
+import { resolve } from 'url';
 
 @Injectable({
 	providedIn: 'root'
@@ -10,6 +12,7 @@ import * as firebase from 'firebase';
 export class FirestoreService {
 
 	private readonly COURSES_COLLECTION: string = "kursy";
+	private readonly USERS_COLLECTION: string = "users";
 
 	constructor(private firestore: AngularFirestore) { }
 
@@ -46,5 +49,26 @@ export class FirestoreService {
 
 	/////////////////////////////////////////////////////////////////////////
 
+	addUser(email: string, role: Role){
+		this.firestore.collection(this.USERS_COLLECTION).doc(email).set({
+			role: role
+		})
+	}
 
+	async getUserRole(email : string) : Promise<Role>{
+		const documentRef = this.firestore.collection(this.USERS_COLLECTION).doc(email);
+
+		if(documentRef == null){
+			return Promise.resolve(Role.User);
+		}
+
+		let doc = await documentRef.ref.get()
+		const docData = doc.data()
+		
+		if(docData == null){
+			return Role.User
+		}
+
+		return docData.role
+	}
 }
