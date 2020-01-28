@@ -87,7 +87,8 @@ export class CourseAddFormComponent implements OnInit {
 			name: addForm.name.value,
 			ects: addForm.ects.value,
 			semester: addForm.semester.value,
-			type: CourseType[addForm.type.value], //tu bedzie sypac bledami 100%
+			type: addForm.type.value,
+			// type: CourseType[addForm.type.value], //tu bedzie sypac bledami 100%
 			studentsLimit: addForm.studentsLimit.value,
 			image: (addForm.image == null || addForm.image.value == "") ?
 					"https://www.wykop.pl/cdn/c3201142/comment_f67FA8qjhTKoEvTM0YbAVN4ZZbAoO5w1.jpg" : // i know, hardcoding stuff

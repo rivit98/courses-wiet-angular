@@ -38,7 +38,7 @@ export class CourseDetailsComponent implements OnInit {
 		this.enrolledAlready = this.checkEnrolled();
 	}
 
-	calculateRating(){
+	calculateRating() {
 		this.currentRating = this.coursesService.getAvgRate(this.course);
 	}
 
@@ -51,7 +51,7 @@ export class CourseDetailsComponent implements OnInit {
 	}
 
 	onRate($event: { oldValue: number, newValue: number }) {
-		if(!this.enrolledAlready){
+		if (!this.enrolledAlready) {
 			this.messageService.error("Musisz być zapisany na kurs, aby go ocenić!");
 			return;
 		}
@@ -64,23 +64,27 @@ export class CourseDetailsComponent implements OnInit {
 		};
 		this.course.ratings.push(ent);
 		this.messageService.success("Zapisano ocene")
+		this.coursesService.addRating(this.course.id, ent)
 
 		this.calculateRating();
 	}
 
-	onEnroll(){
-		if(this.course.enrolledUsers.length >= this.course.studentsLimit){
+	onEnroll() {
+		if (this.course.enrolledUsers.length >= this.course.studentsLimit) {
 			this.messageService.error("Brak miejsc")
 			return;
 		}
 
-		this.course.enrolledUsers.push(this.authService.getCurrentUser().id);
+		let uid = this.authService.getCurrentUser().id;
+
+		this.course.enrolledUsers.push(uid);
 		this.enrolledAlready = true;
 
 		this.messageService.success("Zapisano pomyślnie");
+		this.coursesService.enrollUser(this.course.id, uid)
 	}
 
-	onEdit(course : Course){
+	onEdit(course: Course) {
 		this.course = course;
 	}
 }

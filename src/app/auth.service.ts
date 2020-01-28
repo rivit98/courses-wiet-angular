@@ -35,11 +35,11 @@ export class AuthService {
 		})
 	}
 
-	get user(): Observable<User | null>{
+	get user(): Observable<User | null> {
 		return this.currentUser;
 	}
 
-	getCurrentUser()  {
+	getCurrentUser() {
 		return this.userSubject.value;
 	}
 
@@ -65,11 +65,11 @@ export class AuthService {
 		await this.fireAuth.auth.signOut();
 		localStorage.removeItem('user');
 		this.userSubject.next(null)
-		this.router.navigate(['/dashboard'])
+		this.router.navigate(['/dashboard']);
 		this.messageService.success("Wylogowano");
 	}
 
-	setUserData(user : firebase.User){
+	setUserData(user: firebase.User) {
 		//tu get z angular document role
 		this.userSubject.next({
 			id: user.uid,
@@ -79,8 +79,8 @@ export class AuthService {
 		})
 	}
 
-	isAdmin() : boolean{
-		if(this.getCurrentUser() !== null){
+	isAdmin(): boolean {
+		if (this.getCurrentUser() !== null) {
 			return this.getCurrentUser().role === Role.Admin
 		}
 
