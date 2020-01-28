@@ -1,5 +1,5 @@
 # Description
-to od
+Angular app for courses
 
 
 # To do
