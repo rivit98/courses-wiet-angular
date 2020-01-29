@@ -60,7 +60,7 @@ export class CourseDetailsComponent implements OnInit {
 
 		let ent = {
 			rate: $event.newValue,
-			userId: this.authService.getCurrentUser().id //tu bedzie chyba jakis userid
+			userId: this.authService.getCurrentUser().id
 		};
 		this.course.ratings.push(ent);
 		this.messageService.success("Zapisano ocene")
