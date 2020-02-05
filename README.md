@@ -1,5 +1,5 @@
 # Description
-Angular app for courses
+Angular app for managing courses
 
 
 # To do
@@ -8,3 +8,5 @@ Angular app for courses
 * register/login/course add form fix title bar
 * set scroll when entering into course details
 * set scroll when exiting course details
+* refactor courses service
+* simple backend 
