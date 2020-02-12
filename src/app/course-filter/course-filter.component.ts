@@ -2,7 +2,7 @@ import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/cor
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
 import { CoursesService } from '../courses.service';
 import { FilterInterface } from '../interfaces/filterInterface'
-import { Course } from '../interfaces/Course'
+import { Course } from '../interfaces/course'
 import { FilterService } from '../filter.service'
 
 
