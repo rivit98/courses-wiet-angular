@@ -1,6 +1,9 @@
 # Description
 Angular app for managing courses
 
+# Demo
+[Click](https://rivit98.github.io/lab4_angular/dashboard)
+
 
 # To do
 * pagination
